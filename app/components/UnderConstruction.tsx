@@ -1,19 +1,23 @@
 import { redirect } from "next/navigation";
-import Button from "./components/Button";
-import RenderFileComponent from "./components/RenderFileComponent";
+import Button from "./Button";
+import LoadingSkeleton from "./LoadingSkeleton";
 
-export default function Home() {
+export default function UnderConstruction({
+    text = "Under Construction...",
+}: {
+    text?: string;
+}) {
     const submit = async () => {
         "use server";
-        redirect("/parts");
+        redirect("/");
     };
 
     return (
         <div className="mx-auto p-8 max-w-7xl prose h-full flex flex-col space-y-8">
-            <RenderFileComponent language="markdown" filePath="./README.md" />
+            <LoadingSkeleton text={text} />
 
             <form action={submit} className="flex flex-row justify-center">
-                <Button label="Start" type="submit" />
+                <Button label="Go Home" type="submit" />
             </form>
         </div>
     );
