@@ -1,20 +1,8 @@
-import Part1 from "@/app/components/Part1";
-import Part2 from "@/app/components/Part2";
-import Part3 from "@/app/components/Part3";
-import Part4 from "@/app/components/Part4";
-
 import { redirect } from "next/navigation";
 import { ReactNode } from "react";
 import Button from "@/app/components/Button";
 import Bar from "@/app/components/Bar";
-
-const PARTS: Record<number, ReactNode> = {
-    1: <Part1 />,
-    2: <Part2 />,
-    3: <Part3 />,
-    4: <Part4 />,
-};
-export { PARTS };
+import { PARTS } from "../parts";
 
 export default function PartsLayout({
     params,
