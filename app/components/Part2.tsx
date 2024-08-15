@@ -1,3 +1,10 @@
+import { fuzzyDataString } from "../utils/fuzzyData";
+import { fuzzyMatchString } from "../utils/fuzzyMatch";
+import {
+    fuzzyMatchInstructions1,
+    fuzzyMatchInstructions2,
+    fuzzyMatchSolution,
+} from "../utils/markdown";
 import GenericPart from "./GenericPart";
 import RenderFileComponent from "./RenderFileComponent";
 
@@ -8,18 +15,18 @@ export default function Part2() {
                 <>
                     <RenderFileComponent
                         language="markdown"
-                        filePath="./public/fuzzyMatchInstructions1.md"
+                        codeString={fuzzyMatchInstructions1}
                     />
                     <RenderFileComponent
                         className="mt-6"
                         language="typescript"
-                        filePath="./public/fuzzyData.ts"
+                        codeString={fuzzyDataString}
                         withMaxH
                     />
                     <RenderFileComponent
                         className="mt-6"
                         language="markdown"
-                        filePath="./public/fuzzyMatchInstructions2.md"
+                        codeString={fuzzyMatchInstructions2}
                     />
                 </>
             }
@@ -27,12 +34,12 @@ export default function Part2() {
                 <>
                     <RenderFileComponent
                         language="markdown"
-                        filePath="./public/fuzzyMatchSolution.md"
+                        codeString={fuzzyMatchSolution}
                     />
                     <RenderFileComponent
                         className="mt-6"
                         language="typescript"
-                        filePath="./public/fuzzyMatch.ts"
+                        codeString={fuzzyMatchString}
                     />
                 </>
             }

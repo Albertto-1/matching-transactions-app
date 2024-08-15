@@ -1,6 +1,9 @@
 import GenericPart from "./GenericPart";
 import RenderFileComponent from "./RenderFileComponent";
 import Part3Output from "./Part3Output";
+import { part3Code, part3Input, part3Output } from "../utils/markdown";
+import { fuzzyMatchString } from "../utils/fuzzyMatch";
+import { fuzzyDataString } from "../utils/fuzzyData";
 
 export default function Part3() {
     return (
@@ -9,12 +12,12 @@ export default function Part3() {
                 <>
                     <RenderFileComponent
                         language="markdown"
-                        filePath="./public/part3Input.md"
+                        codeString={part3Input}
                     />
                     <RenderFileComponent
                         className="mt-6"
                         language="typescript"
-                        filePath="./public/fuzzyData.ts"
+                        codeString={fuzzyDataString}
                     />
                 </>
             }
@@ -22,12 +25,12 @@ export default function Part3() {
                 <>
                     <RenderFileComponent
                         language="markdown"
-                        filePath="./public/part3Code.md"
+                        codeString={part3Code}
                     />
                     <RenderFileComponent
                         className="mt-6"
                         language="typescript"
-                        filePath="./public/fuzzyMatch.ts"
+                        codeString={fuzzyMatchString}
                     />
                 </>
             }
@@ -35,7 +38,7 @@ export default function Part3() {
                 <>
                     <RenderFileComponent
                         language="markdown"
-                        filePath="./public/part3Output.md"
+                        codeString={part3Output}
                     />
                     <Part3Output />
                 </>

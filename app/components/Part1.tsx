@@ -1,3 +1,6 @@
+import { exactMatchString } from "../utils/exactMatch";
+import { exactMatchInstructions, exactMatchSolution } from "../utils/markdown";
+import { typesString } from "../utils/types";
 import GenericPart from "./GenericPart";
 import RenderFileComponent from "./RenderFileComponent";
 
@@ -8,12 +11,12 @@ export default function Part1() {
                 <>
                     <RenderFileComponent
                         language="markdown"
-                        filePath="./public/exactMatchInstructions.md"
+                        codeString={exactMatchInstructions}
                     />
                     <RenderFileComponent
                         className="mt-6"
                         language="typescript"
-                        filePath="./public/types.ts"
+                        codeString={typesString}
                     />
                 </>
             }
@@ -21,12 +24,12 @@ export default function Part1() {
                 <>
                     <RenderFileComponent
                         language="markdown"
-                        filePath="./public/exactMatchSolution.md"
+                        codeString={exactMatchSolution}
                     />
                     <RenderFileComponent
                         className="mt-6"
                         language="typescript"
-                        filePath="./public/exactMatch.ts"
+                        codeString={exactMatchString}
                     />
                 </>
             }

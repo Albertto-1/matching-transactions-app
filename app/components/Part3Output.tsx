@@ -2,8 +2,11 @@
 
 import { useMemo, useState } from "react";
 import Button from "./Button";
-import { fuzzyMatch } from "@/public/fuzzyMatch";
-import { transcribedOrders, transcribedTransactions } from "@/public/fuzzyData";
+import { fuzzyMatch } from "@/app/utils/fuzzyMatch";
+import {
+    transcribedOrders,
+    transcribedTransactions,
+} from "@/app/utils/fuzzyData";
 import RenderFileComponent from "./RenderFileComponent";
 
 export default function Part3Output() {

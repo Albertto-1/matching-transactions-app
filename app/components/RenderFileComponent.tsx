@@ -3,31 +3,19 @@ import remarkGfm from "remark-gfm";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { gruvboxDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-import { readFileSync } from "fs";
-import path from "path";
 import { classNames } from "../utils";
 
-function contentOfFile(_path: string) {
-    const filePath = path.resolve(process.cwd(), _path);
-    return readFileSync(filePath, "utf8");
-}
-
 export default function RenderFileComponent({
-    filePath,
     codeString,
     language,
     className,
     withMaxH = false,
 }: {
-    filePath?: string;
     codeString?: string;
     language: string;
     className?: string;
     withMaxH?: boolean;
 }) {
-    let _codeString = codeString;
-    if (filePath !== undefined) _codeString = contentOfFile(filePath);
-
     return (
         <div
             className={classNames(
@@ -47,7 +35,7 @@ export default function RenderFileComponent({
                     )}
                     remarkPlugins={[remarkGfm]}
                 >
-                    {_codeString}
+                    {codeString}
                 </ReactMarkdown>
             ) : (
                 <div
@@ -57,13 +45,13 @@ export default function RenderFileComponent({
                             : "",
                     )}
                 >
-                    {_codeString && (
+                    {codeString && (
                         <SyntaxHighlighter
                             language={language}
                             style={gruvboxDark}
                             showLineNumbers
                         >
-                            {_codeString}
+                            {codeString}
                         </SyntaxHighlighter>
                     )}
                 </div>
