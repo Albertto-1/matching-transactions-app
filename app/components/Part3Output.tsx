@@ -20,7 +20,7 @@ export default function Part3Output() {
                 ),
                 null,
                 4,
-            ),
+            ).replace(/"([^"]+)":/g, "$1:"),
         [],
     );
 
