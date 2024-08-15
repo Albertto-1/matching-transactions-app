@@ -8,7 +8,7 @@ import path from "path";
 import { classNames } from "../utils";
 
 function contentOfFile(_path: string) {
-    const filePath = path.join(process.cwd(), _path);
+    const filePath = path.resolve(process.cwd(), _path);
     return readFileSync(filePath, "utf8");
 }
 
