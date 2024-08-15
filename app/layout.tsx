@@ -18,7 +18,7 @@ export default function RootLayout({
             <body className="h-screen w-screen flex flex-col">
                 <Bar>
                     <Image
-                        alt="fintary logo"
+                        alt="logo"
                         width={26}
                         height={26}
                         src="https://cdn.prod.website-files.com/62898f7a136f6141a59e1d79/64d1f07b78cbfe9cb944e91c_Group-163.svg"
