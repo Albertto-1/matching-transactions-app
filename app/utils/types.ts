@@ -1,4 +1,5 @@
-interface OrderTransaction {
+export interface OrderTransaction {
+    type: string;
     customerName: string;
     orderId: string;
     date: string;
@@ -8,7 +9,8 @@ interface OrderTransaction {
     transactionDate: string;
     transactionAmount: number;
 }
-interface Order {
+export interface Order {
+    type: string;
     customerName: string;
     orderId: string;
     date: string;

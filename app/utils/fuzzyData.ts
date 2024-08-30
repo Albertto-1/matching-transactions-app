@@ -9,7 +9,7 @@ export const transcribedOrders = [
     },
     {
         type: "order",
-        customerName: "Bryan",
+        customerName: "Bryann",
         orderId: "12OB-I",
         date: "2023-07-11",
         product: "Product ABC-1",

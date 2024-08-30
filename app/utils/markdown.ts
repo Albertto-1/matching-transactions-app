@@ -1,4 +1,7 @@
-export const part4 = `## Part 4 - User matching flow`;
+export const part4 = `## Part 4 - User matching flow
+
+Design a workflow for users in the web app to identify whether the automated matches are correct or not, and apply these learnings to future matches. You can think of your output (matches) as “unverified” or “pending approval”. This workflow would allow a user to confirm or reject the matches. Furthermore, these learnings should be used in future matching cycles to identify whether the matches should be matches or not. It may be easier to do affirmative matches - so do this one first, and optionally negative matching if there's time.
+For datastore, you can use a free service, or for simplicity, use one of the built-in browser datastores.`;
 
 export const part3Code = `## Code`;
 

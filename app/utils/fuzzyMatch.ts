@@ -68,6 +68,45 @@ export const fuzzyMatch = (
     return orders;
 };
 
+export const fuzzyMatchFlow = (
+    orders: Order[],
+    transactions: OrderTransaction[],
+): Record<number, Record<number, number>> => {
+    const fuse = new Fuse(transactions, fuseOptions);
+    const fuzzyMatches: Record<number, Record<number, number>> = {};
+
+    orders.forEach((order, oIndex) => {
+        const matches = fuse.search({
+            $and: [
+                { orderId: order.orderId },
+                { customerName: order.customerName },
+                { product: order.product },
+            ],
+        });
+
+        matches.forEach((match) => {
+            const tIndex = match.refIndex;
+            if (!fuzzyMatches[tIndex]) fuzzyMatches[tIndex] = {};
+            fuzzyMatches[tIndex][oIndex] = match.score ?? Number.MAX_VALUE;
+        });
+    });
+
+    return fuzzyMatches;
+
+    Object.keys(fuzzyMatches).forEach((transactionIndex) => {
+        const tIndex = +transactionIndex;
+        const oIndexes: string[] = Object.keys(fuzzyMatches[tIndex]);
+        const oScores: number[] = Object.values(fuzzyMatches[tIndex]);
+        const minScoreIndex = indexOfMin(oScores);
+
+        const order = orders[+oIndexes[minScoreIndex]];
+        if (!order.transactions) order.transactions = [];
+        order.transactions.push(transactions[tIndex]);
+    });
+
+    return orders;
+};
+
 export const fuzzyMatchString = `import { indexOfMin } from "@/app/utils";
 import Fuse from "fuse.js";
 
