@@ -10,11 +10,13 @@ export default function RenderFileComponent({
     language,
     className,
     withMaxH = false,
+    showLineNumbers = true,
 }: {
     codeString?: string;
     language: string;
     className?: string;
     withMaxH?: boolean;
+    showLineNumbers?: boolean;
 }) {
     return (
         <div
@@ -49,7 +51,7 @@ export default function RenderFileComponent({
                         <SyntaxHighlighter
                             language={language}
                             style={gruvboxDark}
-                            showLineNumbers
+                            showLineNumbers={showLineNumbers}
                         >
                             {codeString}
                         </SyntaxHighlighter>

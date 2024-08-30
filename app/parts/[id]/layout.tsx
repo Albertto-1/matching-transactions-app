@@ -28,7 +28,9 @@ export default function PartsLayout({
 
     return (
         <section className="h-full w-full flex flex-col">
-            <div className="grow overflow-hidden p-6 pb-6">{children}</div>
+            <div className="relative grow overflow-hidden p-6 pb-6">
+                {children}
+            </div>
 
             <Bar className="justify-between">
                 <form action={prev}>
